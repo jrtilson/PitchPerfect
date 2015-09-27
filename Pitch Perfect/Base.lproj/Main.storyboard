@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wib-9h-v1H">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="microphone"/>
+                                <connections>
+                                    <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YJ7-iL-e2Y"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEY-S9-uyD">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="163" y="358" width="74" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIR-f7-UMM">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="stop"/>
+                                <connections>
+                                    <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w0K-ZC-dsK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cIR-f7-UMM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2qG-fU-UlL"/>
+                            <constraint firstItem="wib-9h-v1H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RXf-23-uLb"/>
+                            <constraint firstItem="BEY-S9-uyD" firstAttribute="top" secondItem="wib-9h-v1H" secondAttribute="bottom" constant="8" id="S0j-s0-guy"/>
+                            <constraint firstItem="wib-9h-v1H" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lbG-MR-Wce"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cIR-f7-UMM" secondAttribute="bottom" constant="20" id="neO-FB-DXd"/>
+                            <constraint firstItem="BEY-S9-uyD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qDB-Uf-f0N"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="wib-9h-v1H"/>
+                                <exclude reference="BEY-S9-uyD"/>
+                                <exclude reference="cIR-f7-UMM"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="RXf-23-uLb"/>
+                                <exclude reference="lbG-MR-Wce"/>
+                                <exclude reference="S0j-s0-guy"/>
+                                <exclude reference="qDB-Uf-f0N"/>
+                                <exclude reference="2qG-fU-UlL"/>
+                                <exclude reference="neO-FB-DXd"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="wib-9h-v1H"/>
+                                <include reference="BEY-S9-uyD"/>
+                                <include reference="cIR-f7-UMM"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="RXf-23-uLb"/>
+                                <include reference="lbG-MR-Wce"/>
+                                <include reference="S0j-s0-guy"/>
+                                <include reference="qDB-Uf-f0N"/>
+                                <include reference="2qG-fU-UlL"/>
+                                <include reference="neO-FB-DXd"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="labelRecording" destination="BEY-S9-uyD" id="AOV-nS-89U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="423" y="321"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="microphone" width="100" height="100"/>
+        <image name="stop" width="50" height="50"/>
+    </resources>
+</document>
