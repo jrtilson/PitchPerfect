@@ -23,12 +23,12 @@ class PlaySoundsViewController: UIViewController {
         super.viewDidLoad()
         
         // Set up audio engine and audio file for pitch shifting
-        self.audioEngine = AVAudioEngine()
-        self.audioFile = try! AVAudioFile(forReading: self.receivedAudio.filePathUrl)
+        audioEngine = AVAudioEngine()
+        audioFile = try! AVAudioFile(forReading: self.receivedAudio.filePathUrl)
     
         // Set up audio player for rate modification
-        self.audioPlayer = try! AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
-        self.audioPlayer.enableRate = true
+        audioPlayer = try! AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
+        audioPlayer.enableRate = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,11 +38,11 @@ class PlaySoundsViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func playSlowAudio(sender: UIButton) {
-        self.playAudioWithVariableRate(0.5)
+        playAudioWithVariableRate(0.5)
     }
 
     @IBAction func playFastAudio(sender: UIButton) {
-        self.playAudioWithVariableRate(2.0)
+        playAudioWithVariableRate(2.0)
     }
 
     @IBAction func playChipmunkAudio(sender: UIButton) {
@@ -54,18 +54,18 @@ class PlaySoundsViewController: UIViewController {
     }
 
     @IBAction func stopAudio(sender: UIButton) {
-        self.resetAllAudio()
+        resetAllAudio()
     }
     
     // MARK: - Helpers
     func playAudioWithVariableRate(rate: Float) {
-        self.resetAllAudio()
-        self.audioPlayer.rate = rate
-        self.audioPlayer.play()
+        resetAllAudio()
+        audioPlayer.rate = rate
+        audioPlayer.play()
     }
     
     func playAudioWithVariablePitch(pitch: Float){
-        self.resetAllAudio()
+        resetAllAudio()
         
         let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
@@ -85,9 +85,9 @@ class PlaySoundsViewController: UIViewController {
     
     func resetAllAudio() {
         // Stop and reset all audio
-        self.audioPlayer.currentTime = 0.0
-        self.audioPlayer.stop()
-        self.audioEngine.stop()
-        self.audioEngine.reset()
+        audioPlayer.currentTime = 0.0
+        audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
     }
 }
